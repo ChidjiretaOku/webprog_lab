@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
                 <div>Hey there!</div>
                 <div>To check ex9 click <a href="http://localhost:3000/api/MagoyanTigran/lab1/ex9?d1=1&d2=1&m1=1&m2=1&y1=1970&y2=2000">here</a></div>
                 <div>To check ex12 click <a href="http://localhost:3000/api/MagoyanTigran/lab1/ex12?char=g&str=asdfghj">here</a></div>
-                <div>To check ex22 click <a href="http://localhost:3000/api/MagoyanTigran/lab1/ex22?arr[]=1&arr[]=2&arr[]=3&arr[]=4&arr[]=5&n=3">here</a></div>
+                <div>To check ex22 click <a href="http://localhost:3000/api/MagoyanTigran/lab1/ex22?arr=1,2,3,4,5&n=3">here</a></div>
             </body>
             </html>
     `)
@@ -36,7 +36,8 @@ app.get('/api/MagoyanTigran/lab1/ex12', middle12, (req, res) => {
 })
 
 app.get('/api/MagoyanTigran/lab1/ex22', middle22, (req, res) => {
-    res.send(req.query.arr + " | " + req.query.n + "<br />" + ex22.shiftNum(req.query.arr, req.query.n))
+    let array = (req.query.arr).split(",")
+    res.send(array + " | " + req.query.n + "<br />" + ex22.shiftNum(array, req.query.n))
 })
 
 function middle9(req, res, next) {
