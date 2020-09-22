@@ -3,9 +3,9 @@ const app = express()
 const port = 3000
 
 
-var ex9 = require("./functions_1/9.js");
-var ex12 = require("./functions_1/12.js");
-var ex22 = require("./functions_1/22.js");
+let ex9 = require("./functions_1/9.js");
+let ex12 = require("./functions_1/12.js");
+let ex22 = require("./functions_1/22.js");
 
 app.get('/', (req, res) => {
         res.send(`
@@ -26,12 +26,15 @@ app.get('/', (req, res) => {
     `)
     }
 )
+
 app.get('/api/MagoyanTigran/lab1/ex9', middle9, (req, res) => {
     res.send("There were " + ex9.monthsBetween(req.query.d1, req.query.m1, req.query.y1, req.query.d2, req.query.m2, req.query.y2) + " months between<br />" + ex9.date1 + "<br />and<br />" + ex9.date2)
 })
+
 app.get('/api/MagoyanTigran/lab1/ex12', middle12, (req, res) => {
     res.send("Cut '" + req.query.str + "' from " + req.query.char + " and got<br />Result - '" + ex12.sliceFrom(req.query.str, req.query.char) + "'")
 })
+
 app.get('/api/MagoyanTigran/lab1/ex22', middle22, (req, res) => {
     res.send(req.query.arr + " | " + req.query.n + "<br />" + ex22.shiftNum(req.query.arr, req.query.n))
 })
@@ -51,7 +54,7 @@ function middle12(req, res, next) {
         res.status(404).send("Char not found")
     } else {
         if (string.length === 0 || char.length > 1 || char.length === 0) {
-            res.status(228).send("Invalid input")
+            res.status(400).send("Invalid input")
         } else {
             next()
         }
@@ -59,8 +62,8 @@ function middle12(req, res, next) {
 }
 
 function middle22(req, res, next) {
-    if (req.query.n < 0 || req.query.n > req.query.arr.length || req.query.arr.length <=0) {
-        res.status(228).send("Invalid input")
+    if (req.query.n < 0 || req.query.n > req.query.arr.length || req.query.arr.length <= 0) {
+        res.status(400).send("Invalid input")
     } else {
         next()
     }
