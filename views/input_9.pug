@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    form(action='/api/MagoyanTigran/lab1/ex9/exec')
+        span Enter the first date:
+        input(
+            type='text'
+            name='d1'
+            minlength='2'
+            maxlength='2'
+        )
+        input(
+            type='text'
+            name='m1'
+            minlength='2'
+            maxlength='2'
+        )
+        input(
+            type='text'
+            name='y1'
+            minlength='4'
+            maxlength='4'
+        )
+        br
+        span Enter the second date:
+        input(
+            type='text'
+            name='d2'
+            minlength='2'
+            maxlength='2'
+        )
+        input(
+            type='text'
+            name='m2'
+            minlength='2'
+            maxlength='2'
+        )
+        input(
+            type='text'
+            name='y2'
+            minlength='4'
+            maxlength='4'
+        )
+        input(type='submit')

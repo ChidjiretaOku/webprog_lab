@@ -1,7 +1,20 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        block navigation
+            h2 Navigation
+            ul
+                li <a href= '/'> Authentification </a>
+                li <a href= '/api/MagoyanTigran/lab1/ex9/input'> first ex </a>
+                li <a href= '/api/MagoyanTigran/lab1/ex12/input'> second ex </a>
+                li <a href= '/api/MagoyanTigran/lab1/ex22/input'> third ex </a>
+                li <a href= '/'> ??? </a>
+        hr
+        block content
+            h3 Welcome to my express web app
+        hr
+        block footer
+            footer footer infa

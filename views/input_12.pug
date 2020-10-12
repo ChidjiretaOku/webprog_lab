@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    form(action='/api/MagoyanTigran/lab1/ex12/exec')
+        span Enter the character:
+        input(
+            type='text'
+            name='char'
+            maxlength='1'
+        )
+        br
+        span Enter the sting:
+        input(
+            type='text'
+            name='str'
+        )
+        br
+        input(type='submit')

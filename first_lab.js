@@ -7,7 +7,25 @@ let ex9 = require("./functions_1/9.js");
 let ex12 = require("./functions_1/12.js");
 let ex22 = require("./functions_1/22.js");
 
-app.get('/', (req, res) => {
+app.set("view engine","pug")
+
+app.use('/Main',function (req,res){
+    res.render('layout',{
+        title: 'Main page'
+    });
+})
+
+app.use('/api/MagoyanTigran/lab1/ex9/input', function (req,res){
+    res.render('input_9')
+})
+app.use('/api/MagoyanTigran/lab1/ex12/input', function (req,res){
+    res.render('input_12')
+})
+app.use('/api/MagoyanTigran/lab1/ex22/input', function (req,res){
+    res.render('input_22')
+})
+
+/*app.get('/', (req, res) => {
         res.send(`
             <!DOCTYPE html>
             <html lang="en">
@@ -25,17 +43,17 @@ app.get('/', (req, res) => {
             </html>
     `)
     }
-)
+)*/
 
-app.get('/api/MagoyanTigran/lab1/ex9', middle9, (req, res) => {
+app.get('/api/MagoyanTigran/lab1/ex9/exec', middle9, (req, res) => {
     res.send("There were " + ex9.monthsBetween(req.query.d1, req.query.m1, req.query.y1, req.query.d2, req.query.m2, req.query.y2) + " months between<br />" + ex9.date1 + "<br />and<br />" + ex9.date2)
 })
 
-app.get('/api/MagoyanTigran/lab1/ex12', middle12, (req, res) => {
+app.get('/api/MagoyanTigran/lab1/ex12/exec', middle12, (req, res) => {
     res.send("Cut '" + req.query.str + "' from " + req.query.char + " and got<br />Result - '" + ex12.sliceFrom(req.query.str, req.query.char) + "'")
 })
 
-app.get('/api/MagoyanTigran/lab1/ex22', middle22, (req, res) => {
+app.get('/api/MagoyanTigran/lab1/ex22/exec', middle22, (req, res) => {
     let array = (req.query.arr).split(",")
     res.send(array + " | " + req.query.n + "<br />" + ex22.shiftNum(array, req.query.n))
 })
@@ -72,5 +90,5 @@ function middle22(req, res, next) {
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Example app listening at http://localhost:${port}/main`)
 })
