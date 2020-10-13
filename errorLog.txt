@@ -1,0 +1,4 @@
+Tue Oct 13 2020 14:29:34 GMT+0300 (Москва, стандартное время) 401 /api/MagoyanTigran/lab1/ex22/input
+Tue Oct 13 2020 14:29:56 GMT+0300 (Москва, стандартное время) 401 /api/MagoyanTigran/lab1/ex12/input
+Tue Oct 13 2020 14:30:00 GMT+0300 (Москва, стандартное время) 401 /api/MagoyanTigran/lab1/ex12/input
+Tue Oct 13 2020 14:30:25 GMT+0300 (Москва, стандартное время) 400 /api/MagoyanTigran/lab1/ex12/exec?auth=true&char=g&str=12334

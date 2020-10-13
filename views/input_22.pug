@@ -2,6 +2,12 @@ extends layout
 
 block content
     form(action='/api/MagoyanTigran/lab1/ex22/exec')
+        input(
+            type='text'
+            name='auth'
+            value='true'
+            hidden='true'
+        )
         span Enter the array:
         input(type='text' name='arr')
         br

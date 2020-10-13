@@ -5,14 +5,21 @@ block content
         span Enter the character:
         input(
             type='text'
+            name='auth'
+            value='true'
+            hidden='true'
+        )
+        input(
+            type='text'
             name='char'
             maxlength='1'
         )
         br
-        span Enter the sting:
+        span Enter the string:
         input(
             type='text'
             name='str'
         )
         br
+
         input(type='submit')
